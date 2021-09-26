@@ -1,0 +1,45 @@
+<mat-card class="add-property">
+<div class="add-property-forms">
+<form class="property-form" [formGroup]="propertyForm">
+  <mat-form-field class="property-full-width">
+    <mat-label>Property Name</mat-label>
+    <input matInput placeholder="Property Name" formControlName="propertyName" >
+  </mat-form-field>
+
+  <mat-form-field class="property-full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput placeholder="Description."  formControlName="Description" ></textarea>
+  </mat-form-field>
+   <mat-form-field class="property-full-width">
+    <mat-label>Address</mat-label>
+    <textarea matInput placeholder="Address." formControlName="Address" ></textarea>
+  </mat-form-field>
+  <mat-form-field class="property-right-align"   floatLabel="always">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" class="property-right-align" formControlName="Price" placeholder="0">
+    <span matSuffix>.00</span>
+  </mat-form-field>
+
+<mat-form-field>
+  <mat-label>Locality Area</mat-label>
+  <mat-select formControlName="LocalityArea" >
+    <mat-option *ngFor="let la of LocalityAreaList" [value]="la">{{la}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+  <mat-form-field class="property-right-align" floatLabel="always">
+    <mat-label>CarpetArea</mat-label>
+    <input matInput type="number" class="property-right-align" formControlName="CarpetArea" placeholder="0">
+  </mat-form-field>
+
+<mat-form-field>
+  <mat-label>Measure</mat-label>
+  <mat-select formControlName="Measure">
+    <mat-option value="one" *ngFor="let ml of measureList" [value]="ml.value" >{{ml.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+ <input class="upload" multiple="multiple" type="file" (change)="handleCategoryBanner($event.target)" class="custom-file-input" id="category_banner" accept=".jpeg,.png,.jpg">
+</form>
+</div>
+ <button class="submit" mat-raised-button  (click)="submitFormValue()">Submit</button>
+</mat-card>

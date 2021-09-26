@@ -1,0 +1,36 @@
+.add-property {
+    min-width: 1000px;
+    height: 500px;
+    margin-top: 100px;
+}
+
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-property-forms {
+
+}
+.property-form {
+    min-width: 150px;
+    width: 100%;
+  }
+  mat-form-field{
+      padding: 10px;
+  }
+  
+  .property-full-width {
+    width: 100%;
+  }
+  .property-right-align {
+      margin-right: 10px;
+  }
+  .upload {
+    margin-top: 10px;
+   }
+
+   .submit {
+
+    margin-top: 10px;
+   }

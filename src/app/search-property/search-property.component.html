@@ -1,0 +1,71 @@
+<div class="property-search-panel">
+
+<div class="search-criteria">
+<div class="search-criteria-filter">
+<div>
+<mat-form-field >
+  <mat-label>Locality Area</mat-label>
+  <mat-select  (selectionChange)="doSomething($event)"  [(ngModel)]="Location" >
+    <mat-option *ngFor="let la of LocalityAreaList" [value]="la">{{la}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+<div>
+<mat-form-field >
+  <mat-label>Date</mat-label>
+  <mat-select (selectionChange)="doSomething($event)" [(ngModel)]="dateRange" >
+    <mat-option *ngFor="let la of dateSearch" [value]="la">{{la}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+<div>
+Price in Lakhs:
+    <mat-slider
+        class="example-margin"
+        [max]="100"
+        [min]="0"
+        (change)="doSomething($event)"
+        [thumbLabel]="true"
+         [(ngModel)]="priceRange"
+        aria-labelledby="example-name-label">
+    </mat-slider>
+    </div>
+    <div>
+<mat-form-field >
+  <mat-label>View Carpet Area</mat-label>
+  <mat-select (selectionChange)="doSomething($event)" [(ngModel)]="measureConverter">
+    <mat-option value="one" *ngFor="let ml of measureList" [value]="ml.value" >{{ml.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+    </div>
+    </div>
+</div>
+
+<div class="property-list">
+<div class="property-card" *ngFor="let pd of propertyData">
+  <img [src]="'http://localhost:3000/property_image//'+pd.Images"/>
+  <div class="property-desc">
+    <div >
+   <b>propertyName:</b> {{pd.propertyName}}
+    </div>
+        <div>
+    <b>Description:</b> {{pd.Description}}
+    </div>
+        <div>
+    <b>LocalityArea:</b> {{pd.LocalityArea}}
+    </div>
+     <div>
+    <b>CarpetArea:</b> {{pd.CarpetArea}} {{measureConverter}}
+    </div>
+     <div>
+    <b>Price:</b> {{pd.Price}}
+    </div>
+  </div>
+</div>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               (page)="setPageSizeOptions($event)"
+               aria-label="Select page">
+</mat-paginator>
+</div>
+</div>
